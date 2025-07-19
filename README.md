@@ -14,5 +14,4 @@ This engine **leverages the Finnhub API** to retrieve accurate and up-to-date hi
 - 🛠️ **Customizable Parameters**: Test strategies under different conditions and input parameters.
 - 🧪 **Paper Trading Ready**: Easily integrate with a paper trading environment for forward testing.
 
-## 📁 Project Structure
 
