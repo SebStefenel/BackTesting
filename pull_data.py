@@ -22,5 +22,4 @@ request_params = StockBarsRequest(
 # Fetch data
 bars = client.get_stock_bars(request_params)
 
-# Print the data as a DataFrame
-print(bars.df)
+bars.df.to_csv("Info.csv")
