@@ -1,0 +1,2 @@
+- to the growthcheck add a stop that prevents the script from accepting overnight growth 
+- add timespan

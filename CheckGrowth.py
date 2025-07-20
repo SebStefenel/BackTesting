@@ -1,7 +1,7 @@
 import pandas as pd
 
-expected_percent_change = 0.3
-time_span = 2
+expected_percent_change = 5
+time_span = 1 # this is in reference to sets of 2 minutes
 
 df = pd.read_csv("Info.csv", parse_dates=True, index_col="timestamp")
 
