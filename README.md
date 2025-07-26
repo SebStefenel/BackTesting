@@ -8,7 +8,7 @@ This engine **leverages Alpaca Markets API** to retrieve accurate and up-to-date
 
 
 ## ✨ Current Features
-
+ 
 - 🧠 **Lead-lag trading strategy**: Evaluate strategies where one stock is traded based on signals derived from another's performance (lead-lag behavior).
 - ⏪ **Historical Data Replay (via Alpaca)**: Pull and test strategies over historical market data using the **Alpaca API**.
 
