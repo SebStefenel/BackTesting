@@ -9,8 +9,8 @@ with open("selected_stock.txt", "r") as f:
     stock = f.read().strip()
 
 # Replace with your keys
-ALPACA_API_KEY = API_KEY
-ALPACA_SECRET_KEY = Secret
+ALPACA_API_KEY = "API_KEY"
+ALPACA_SECRET_KEY = "Secret"
 
 # Create Alpaca data client
 client = StockHistoricalDataClient(ALPACA_API_KEY, ALPACA_SECRET_KEY)
