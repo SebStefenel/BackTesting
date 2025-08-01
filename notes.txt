@@ -1,3 +1,4 @@
+- First let me just create one big file for functions and then I can just call the functions whenever I need them instead of running one file that runs another and so forth
 - to the growthcheck add a stop that prevents the script from accepting overnight growth 
 - add timespan
 - check what happens if a certain stock hasn't been around long enough, check why my Apple info only goes bakc to 2016
