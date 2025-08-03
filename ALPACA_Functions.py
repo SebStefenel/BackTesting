@@ -27,7 +27,7 @@ def pull_data(stock, start_date, end_date):
         symbol_or_symbols=[stock],
         timeframe=TimeFrame.Minute,
         start=datetime.datetime(start_date[0], start_date[1], start_date[2]),
-        end=datetime.datetime(end_date[0], start_date[1], start_date[2])
+        end=datetime.datetime(end_date[0], end_date[1], end_date[2])
     )
 
     bars = client.get_stock_bars(request_params)
