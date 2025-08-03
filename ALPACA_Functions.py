@@ -102,5 +102,17 @@ def backtest_lead_lag_strategy(
             })
 
     result_df = pd.DataFrame(spike_signals)
+
+    if result_df.empty:
+        print("No spikes detected that met the criteria.")
+        return result_df
+
+    # Calculate total and average return
+    total_return = result_df['lag_return_pct'].sum()
+    average_return = result_df['lag_return_pct'].mean()
+    num_trades = len(result_df)
+
+    print(f"\nTotal lag return over {num_trades} trades: {total_return:.4f}%")
+    print(f"Average return per trade: {average_return:.4f}%")
     print(result_df)
-    return result_df
+    return total_return
