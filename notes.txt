@@ -1,3 +1,4 @@
 - to the growthcheck add a stop that prevents the script from accepting overnight growth 
 - add timespan
 - check what happens if a certain stock hasn't been around long enough, check why my Apple info only goes bakc to 2016
+- test nonsese
