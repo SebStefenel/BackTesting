@@ -35,7 +35,7 @@ def pull_data(stock, start_date, end_date):
 
     return bars.df
 
-def backtest_lead_lag_strategy(
+def backtest_lead_lag_strategy( 
     lead_stock: str,
     lag_stock: str,
     lead_pct_increase: float,
@@ -71,6 +71,10 @@ def backtest_lead_lag_strategy(
         start_row = lead_df.iloc[i]
         end_row = lead_df.iloc[i + lead_window_minutes]
 
+        # ✅ Skip if the end of the window is not on the same calendar day
+        if start_row['timestamp'].date() != end_row['timestamp'].date():
+            continue
+
         pct_change = (end_row['close'] - start_row['close']) / start_row['close'] * 100
 
         if pct_change >= lead_pct_increase:
@@ -103,7 +107,7 @@ def backtest_lead_lag_strategy(
 
     result_df = pd.DataFrame(spike_signals)
     print(result_df)
-    
+
     if result_df.empty:
         print("No spikes detected that met the criteria.")
         return result_df
@@ -115,5 +119,5 @@ def backtest_lead_lag_strategy(
 
     print(f"\nTotal lag return over {num_trades} trades: {total_return:.4f}%")
     print(f"Average return per trade: {average_return:.4f}%")
-    
+
     return total_return
