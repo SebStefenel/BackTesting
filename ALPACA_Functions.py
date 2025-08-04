@@ -35,6 +35,7 @@ def pull_data(stock, start_date, end_date):
 
     return bars.df
 
+# This function implements a lead-lag strategy based on the parameters provided
 def backtest_lead_lag_strategy( 
     lead_stock: str,
     lag_stock: str,
@@ -121,3 +122,18 @@ def backtest_lead_lag_strategy(
     print(f"Average return per trade: {average_return:.4f}%")
 
     return total_return
+
+# calculates the returns of holding a stock over a given time frame
+def holding_returns(stock, start_date, end_date):
+    df = pull_data(stock, start_date, end_date)
+    if df.empty:
+        print(f"No data for stock {stock}")
+        return None
+
+    # Calculate returns
+    start_price = df.iloc[0]['close']
+    end_price = df.iloc[-1]['close']
+    return_pct = (end_price - start_price) / start_price * 100
+
+    print(f"Holding {stock} from {start_date} to {end_date} yields a return of {return_pct:.2f}%")
+    return return_pct
