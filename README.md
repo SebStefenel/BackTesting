@@ -1,19 +1,60 @@
 # 📊 BackTesting Engine for Trading Strategies
 
-## Overview
+## 🧩 Overview
 
-This project is a **BackTesting framework** designed to simulate and evaluate trading strategies using historical market data. It allows traders and developers to analyze the performance of algorithmic strategies **before risking real capital** in live markets.
+This project is a **modular backtesting framework** designed to **simulate and evaluate trading strategies** using **historical market data** from the [Alpaca Markets API](https://alpaca.markets/).  
 
-This engine **leverages Alpaca Markets API** to retrieve accurate and up-to-date historical financial data, making it suitable for testing equity and crypto strategies with real market conditions.
+It allows traders, analysts, and developers to test algorithmic trading ideas in a **controlled, data-driven environment** before deploying them in live markets.
+
+This engine is flexible enough to handle both **single-asset** and **multi-asset (lead-lag)** strategies and is easily extendable for custom trading logic.
+
+---
+
+## ⚖️ Strategy Comparison Table
+
+| Strategy | Type | Signal Basis | Ideal Market Condition | Example Use |
+|-----------|------|---------------|------------------------|--------------|
+| **Lead-Lag** | Multi-Asset | % Move in leading stock | Correlated asset pairs | Cross-stock prediction |
+| **Moving Average Crossover** | Trend Following | Short vs. Long SMA | Trending markets | “Golden/Death cross” setups |
+| **RSI Mean Reversion** | Contrarian | RSI (momentum oscillator) | Range-bound markets | Buy oversold, sell overbought |
+| **Breakout** | Momentum | Price > rolling high | Strong directional moves | Buy strength continuation |
+| **Bollinger Bands Mean Reversion** | Volatility | Price vs. upper/lower bands | Sideways or reverting markets | Buy dips, sell rallies |
+
+---
 
 
-## ✨ Current Features
+## ✨ Features
 
-- 🧠 **Lead-lag trading strategy**: Evaluate strategies where one stock is traded based on signals derived from another's performance (lead-lag behavior).
-- ⏪ **Historical Data Replay (via Alpaca)**: Pull and test strategies over historical market data using the **Alpaca API**.
+### 🔁 Core Components
+- ⚙️ **Historical Data Retrieval:**  
+  Fetches clean, minute-level (or other timeframe) historical data directly from the Alpaca API.
 
-## 🚀 Getting Started
+- 🧮 **Backtesting Engine:**  
+  Runs defined strategy logic over historical price data and records simulated trades.
 
-1. Clone this repository
-2. Set your Alpaca API keys (https://alpaca.markets/)
-3. Run `RunBacktesting.py` to simulate a lead-lag strategy
+- 📈 **Performance Metrics:**  
+  Automatically calculates total return, average trade return, and number of trades.
+
+---
+
+## 💡 Implemented Strategies
+
+### 1. 🧠 Lead-Lag Strategy
+Trade one stock (the *lagging stock*) based on significant percentage moves in another (the *leading stock*).  
+
+**Logic:**
+- Detect when the *lead* stock increases by a given percentage within a set time window.  
+- Buy the *lag* stock immediately and hold for a fixed period.  
+- Record resulting profit or loss.
+
+**Example Use:**
+```python
+backtest_lead_lag_strategy(
+    lead_stock="SPY",
+    lag_stock="QQQ",
+    lead_pct_increase=0.5,
+    lead_window_minutes=10,
+    lag_hold_minutes=30,
+    start_date=[2025, 9, 29],
+    end_date=[2025, 10, 3]
+)

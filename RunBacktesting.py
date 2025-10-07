@@ -1,6 +1,6 @@
 import ALPACA_Functions
 
-## These are test examples, you can change the parameters to test different scenarios
+## This is are test example, you can change the parameters to test different scenarios or use a different strategy from the ALPACA_Functions file
 lead = "TSM"
 lag = "NVDA"
 lead_pct_increase = 1
