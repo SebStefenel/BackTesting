@@ -14,7 +14,7 @@ def get_key():
     Secret = lines[0].split()[1]
     return [API_KEY, Secret]
 
-# This functions recieves a stock symbol, as well as a start and end date writen in [year, month, day] pulls the data for a given stock symbola and returns the data as (i haven't decided yet) 
+# This functions recieves a stock symbol, as well as a start and end date writen in [year, month, day] pulls the data for a given stock symbola and returns the data
 def pull_data(stock, start_date, end_date):
     key = get_key()
     ALPACA_API_KEY = key[0]
